@@ -1,0 +1,36 @@
+{
+  "name": "Attendance",
+  "version": "0.0.1",
+  "description": "System for tracking attendance",
+  "author": "Kelsey Yuen",
+  "main": "server.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha ./test/*",
+    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Staed/Attendance"
+  },
+  "bugs": {
+    "url": "https://github.com/Staed/Attendance/issues"
+  },
+  "devDependencies": {
+    "acquit": "^0.4.0",
+    "coveralls": "2.11.x",
+    "istanbul" : "^0.4.0",
+    "mocha": "2.3.x"
+  },
+  "dependencies": {
+    "express": "4.13.x",
+    "jade": "1.x",
+    "jquery": "2.x",
+    "nib": "1.1.0",
+    "stylus": "0.52.4"
+  },
+  "engines": {
+    "node": "4.2.x"
+  },
+  "license": "GPLv2"
+}
