@@ -1,6 +1,8 @@
 var express = require("express"),
     stylus  = require('stylus'),
-    nib     = require('nib');
+    nib     = require('nib'),
+    pg      = require('pg');
+var tb_frmt = require('./tableformat.js');
 
 var app = express();
 function compile(str, path) {
@@ -22,7 +24,24 @@ router.use(function(req, res, next) {
   next();
 });
 
-router.get('/', function(req, res) { res.render('pages/index'); });
+router.get('/', function(req, res) {
+  txt = '';
+
+  pg.connect(process.env,DATABASE_URL, function(err, client, done) {
+    if (err) throw err;
+    console.log('Connected to Postgres DB...');
+    client.query('SELECT * FROM attendance;', function(err, result) {
+      done();
+      if (err) return console.error('Error in running query', err);
+
+      (result.rows).forEach(function(val) {
+        txt += tableformat.getRow(val);
+      });
+      client.end();
+    });
+  });
+  res.render('pages/index', {txt});
+});
 
 app.use('/', router);
 app.listen(app.get('port'), function() {

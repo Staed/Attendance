@@ -1,18 +1,31 @@
 extend ../layout
 
 block content
+  div(style='margin-bottom: 10px')
+
   div.container
-    h2 Is she dead, yes or no?
-    | Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
-
-    h2 Uuummmm, this is a tasty burger!
-    | The lysine contingency - it's intended to prevent the spread of the animals is case they ever got off the island. Dr. Wu inserted a gene that makes a single faulty enzyme in protein metabolism. The animals can't manufacture the amino acid lysine. Unless they're continually supplied with lysine by us, they'll slip into a coma and die.
-
-    h2 Is she dead, yes or no?
-    | Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.
-
-    h2 Oh... what I'm gon' do?
-    | Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
-
-    h2 We happy?
-    | Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+    div.row
+      .col-md-10.col-md-offset-1
+        table.table.table-hover
+          thead
+            tr
+              th #
+              th First Name
+              th Last Name
+              th Late Occurances
+          tbody
+            tr
+              th 1
+              th John
+              th Cena
+              th 10
+            tr
+              th 2
+              th Lee
+              th Singer
+              th 2
+            tr
+              th 3
+              th Donald
+              th Trump
+              th 99
