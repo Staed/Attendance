@@ -35,7 +35,7 @@ router.get('/', function(req, res) {
       if (err) return console.error('Error in running query', err);
 
       client.end();
-      res.render('pages/index', {results: result});
+      res.render('pages/index', {results: result.rows});
     });
   });
 });
