@@ -1,6 +1,20 @@
-var express = require("express");
+var express = require("express"),
+    stylus  = require('stylus'),
+    nib     = require('nib');
+
 var app = express();
-var port = process.env.PORT || 5000;
+function compile(str, path) {
+  return stylus(str)
+    .set('filename', path)
+    .set('compress', true)
+    .use(nib())
+}
+
+app.set('port', (process.env.PORT || 5000));
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(stylus.middleware({ src: __dirname + '/public', compile: compile }));
+app.use(express.static(__dirname + '/public'))
 
 var router = express.Router();
 router.use(function(req, res, next) {
@@ -8,10 +22,9 @@ router.use(function(req, res, next) {
   next();
 });
 
-router.get('/', function(req, res) {
-  res.send('Home page');
-});
+router.get('/', function(req, res) { res.render('pages/index'); });
 
 app.use('/', router);
-app.listen(port);
-console.log('Node app is running on port ' + port);
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port ' + app.get('port'));
+});

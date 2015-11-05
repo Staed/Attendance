@@ -1,0 +1,45 @@
+@import 'nib'
+
+html, body
+  height: 100%
+  font-family: 'Ubuntu Mono', monospace;
+
+.footer
+  position: relative
+  margin-top: 20px
+  padding: 20px 0
+  text-align: center
+  font-size: 12px
+  border-top: 1px solid #dcdfe4
+.footer a
+  color: #6b15a1
+  text-decoration: none
+.footer a:hover, a:visited
+  outline: none
+  color: #6b15a1
+.footer a:hover, .footer a:focus
+  text-decoration: underline
+.footer p
+  margin-bottom: 5px
+.footer p:last-of-type, .footer-social-buttons
+  margin-bottom: 20px
+.footer-list, .footer-social-buttons
+  list-style: none
+  padding: 0
+  margin: 0 0 10px
+li.footer-list-item
+  display: inline-block
+  margin-right: 20px
+  list-style-type: none
+.footer-list-item, .footer-social-buttons li
+  display: inline-block
+.footer-list-item:not(:last-child):after{content:"\b7"}.btn-follow
+  margin-right:20px
+
+.btn-follow .twitter-follow-button
+  width:225px !important
+.btn-tweet .twitter-share-button
+  width:98px !important
+@media (min-width: 768px)
+  .footer
+    padding:60px 0

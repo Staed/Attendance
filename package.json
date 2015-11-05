@@ -25,9 +25,9 @@
   "dependencies": {
     "express": "4.13.x",
     "jade": "1.x",
-    "jquery": "2.x",
+    "stylus": "0.52.4",
     "nib": "1.1.0",
-    "stylus": "0.52.4"
+    "jquery": "2.x"
   },
   "engines": {
     "node": "4.2.x"
