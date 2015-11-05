@@ -27,7 +27,7 @@ router.use(function(req, res, next) {
 router.get('/', function(req, res) {
   txt = '';
 
-  pg.connect(process.env,DATABASE_URL, function(err, client, done) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) throw err;
     console.log('Connected to Postgres DB...');
     client.query('SELECT * FROM attendance;', function(err, result) {
@@ -40,7 +40,7 @@ router.get('/', function(req, res) {
       client.end();
     });
   });
-  res.render('pages/index', {txt});
+  res.render('pages/index', {results: txt});
 });
 
 app.use('/', router);
