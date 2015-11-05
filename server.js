@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) throw err;
     console.log('Connected to Postgres DB...');
-    client.query('SELECT * FROM attendance;', function(err, result) {
+    client.query('select meeting_id, first_name, last_name, date from employee inner join attendance on employee.employee_id = attendance.employee_id;', function(err, result) {
       done();
       if (err) return console.error('Error in running query', err);
 

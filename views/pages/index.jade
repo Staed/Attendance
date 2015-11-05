@@ -10,12 +10,14 @@ block content
         table.table.table-hover
           thead
             tr
-              th #
-              th Employee ID
-              th Late Occurances
+              th Meeting ID
+              th First Name
+              th Last Name
+              th Date of Offence
           tbody
             each row in results
               tr
                 td #{row.meeting_id}
-                td  #{row.employee_id}
+                td  #{row.first_name}
+                td #{row.last_name}
                 td  #{row.date}
