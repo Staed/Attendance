@@ -2,7 +2,7 @@ var express = require("express"),
     stylus  = require('stylus'),
     nib     = require('nib'),
     pg      = require('pg');
-var table_format = require('./tableformat.js');
+var tableformat = require('./tableformat.js');
 
 var app = express();
 function compile(str, path) {
