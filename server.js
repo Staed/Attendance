@@ -34,13 +34,10 @@ router.get('/', function(req, res) {
       done();
       if (err) return console.error('Error in running query', err);
 
-      (result.rows).forEach(function(val) {
-        txt += tableformat.getRow(val);
-      });
       client.end();
+      res.render('pages/index', {results: result});
     });
   });
-  res.render('pages/index', {results: txt});
 });
 
 app.use('/', router);

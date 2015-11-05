@@ -15,4 +15,7 @@ block content
               th Late Occurances
           tbody
             each row in results
-              tr= row
+              tr
+                td row.meeting_id
+                td  row.employee_id
+                td  row.date
