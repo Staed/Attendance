@@ -6,6 +6,7 @@ block content
   div.container
     div.row
       .col-md-10.col-md-offset-1
+        h3 Absent/Late Occurances
         table.table.table-hover
           thead
             tr
@@ -14,18 +15,5 @@ block content
               th Last Name
               th Late Occurances
           tbody
-            tr
-              th 1
-              th John
-              th Cena
-              th 10
-            tr
-              th 2
-              th Lee
-              th Singer
-              th 2
-            tr
-              th 3
-              th Donald
-              th Trump
-              th 99
+            each row in results
+              tr= row
