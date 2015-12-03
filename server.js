@@ -17,7 +17,7 @@ app.set('view engine', 'jade');
 app.use(stylus.middleware({ src: __dirname + '/public', compile: compile }));
 app.use(express.static(__dirname + '/public'))
 
-var bodyparser = require('body-parser')
+var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: true}));
 
 var router = express.Router();
