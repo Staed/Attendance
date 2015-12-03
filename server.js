@@ -51,15 +51,13 @@ app.route('/check-in')
 .post(function(req, res) {
   console.log('Processing Post');
 
-  /*
   var client = new pg.Client(process.env.DATABASE_URL);
-  client.connect();*/
+  client.connect();
 
   var meeting_id = req.body.meeting_id;
   var employee_id = req.body.employee_id;
   console.log(meeting_id, employee_id)
 
-  /*
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) throw err;
     console.log('Check-In: Connected to Postgres DB...');
@@ -69,7 +67,7 @@ app.route('/check-in')
       if (err) return console.error('Error deleting entry', err);
       client.end();
     });
-  });*/
+  });
 });
 
 app.listen(app.get('port'), function() {
