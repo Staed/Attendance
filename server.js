@@ -41,11 +41,14 @@ router.get('/', function(req, res) {
 });
 
 app.use('/', router);
+
 app.route('/check-in')
+.get(function(req, res) {
+  res.redirect('/');
+})
 .post(function(req, res) {
   console.log('Processing Post');
 
-  var pg = require('pg');
   var client = new pg.Client(process.env.DATABASE_URL);
   client.connect();
 
@@ -55,8 +58,9 @@ app.route('/check-in')
   var query = client.query("DELETE FROM attendance WHERE meeting_id = " + meeting_id + " and employee_id = " + employee_id);
   query.on('end', function(result) {
     client.end();
+    response.redirect('/');
   })
-})
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port ' + app.get('port'));
