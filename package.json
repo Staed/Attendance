@@ -28,7 +28,8 @@
     "stylus": "0.52.4",
     "nib": "1.1.0",
     "jquery": "2.x",
-    "pg": "4.x"
+    "pg": "4.x",
+    "body-parser": "1.x"
   },
   "engines": {
     "node": "4.2.x"
