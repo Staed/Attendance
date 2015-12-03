@@ -55,11 +55,21 @@ app.route('/check-in')
   var employee_id = req.body.employee_id;
   console.log(meeting_id, employee_id)
   // TODO Maybe remove Date from attendance schema
-  var query = client.query("DELETE FROM attendance WHERE meeting_id = " + meeting_id + " AND employee_id = " + employee_id);
+  /*var query = client.query("DELETE FROM attendance WHERE meeting_id = " + parseInt(meeting_id).toString() + " AND employee_id = " + parseInt(employee_id).toString());
   query.on('end', function(result) {
     client.end();
     response.redirect('/');
-  })
+  })*/
+
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    if (err) throw err;
+    console.log('Check-In: Connected to Postgres DB...');
+    client.query('delete from attendance where meeting_id = ' + (parseInt(meeting_id)).toString() + ' and employee_id = ' + (parseInt(employee_id)).toString(), function(err, result) {
+      done();
+      if (err) return console.error('Error deleting entry', err);
+      client.end();
+    });
+  });
 });
 
 app.listen(app.get('port'), function() {
