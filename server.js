@@ -53,8 +53,9 @@ app.route('/check-in')
 
   var meeting_id = req.body.meeting_id;
   var employee_id = req.body.employee_id;
+  console.log(meeting_id, employee_id)
   // TODO Maybe remove Date from attendance schema
-  var query = client.query("DELETE FROM attendance WHERE meeting_id = " + meeting_id + " and employee_id = " + employee_id);
+  var query = client.query("DELETE FROM attendance WHERE meeting_id = " + meeting_id + " AND employee_id = " + employee_id);
   query.on('end', function(result) {
     client.end();
     response.redirect('/');
